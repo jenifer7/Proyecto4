@@ -1,4 +1,4 @@
-let ul = document.getElementById("pokemons");
+let ul = document.getElementById("container");
 let url = 'https://pokeapi.co/api/v2/pokemon/';
 
 function createNode(element) {

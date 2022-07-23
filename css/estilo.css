@@ -1,0 +1,19 @@
+#container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #ffff;
+    padding: 10px;
+
+}
+
+.show {
+    margin: 90px auto;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
+    width: 600px;
+    background-color: cornflowerblue;
+    color: yellow;
+    font-size: 40px;
+}
