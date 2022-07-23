@@ -1,5 +1,5 @@
 let ul = document.getElementById("pokemons");
-let url = 'https://pokeapi.co/api/v2/pokemon?limit=8';
+let url = 'https://pokeapi.co/api/v2/pokemon/';
 
 function createNode(element) {
     return document.createElement(element);
@@ -8,6 +8,15 @@ function createNode(element) {
 function append(parent, el) {
     return parent.appendChild(el);
 }
+
+for (let i = 0; i < 6; i++) {
+    let pokesR = Math.floor(Math.random() * 248);
+
+    let allpoke = url + pokesR;
+    fetch(allpoke)
+    console.log(url + pokesR);
+}
+
 fetch(url)
 
     .then((resp) => resp.json())
@@ -16,17 +25,14 @@ fetch(url)
         let poke = data;
         console.log(poke);
 
-        return poke.map(function (pokemon) {
-            let li = createNode('li'),
-                img = createNode('img'),
-                span = createNode('span');
-            img.src = pokemon.sprites.back_shiny;
-            span.innerHTML = `${pokemon.name}`;
-            append(li, img);
-            append(li, span);
-            append(ul, li);
-            console.log(pokemon);
-        })
+        let li = createNode('li'),
+            img = createNode('img'),
+            span = createNode('span');
+        img.src = poke.sprites.front_shiny;
+        span.innerHTML = `${poke.forms[0].name}`;
+        append(li, img);
+        append(li, span);
+        append(ul, li);
     })
 
     .catch(function (error) {
